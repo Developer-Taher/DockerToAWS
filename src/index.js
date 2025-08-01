@@ -55,10 +55,10 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   try {
     await redisclient.set('products', 'docker');
-    res.send("<h1>hello test node js with docker test live with hi</h1>");
+    res.send("<h1>hello test node js with docker test live with aws</h1>");
   } catch (error) {
     console.log('Redis set error:', error);
-    res.send("<h1>hello test node js with docker test live with hi</h1>");
+    res.send("<h1>hello test node js with docker test live with aws</h1>");
   }
 });
 
@@ -66,7 +66,7 @@ app.get("/", async (req, res) => {
 app.get("/data", async (req, res) => {
   try {
     const products = await redisclient.get('products');
-    res.send(`<h1>hello test node js with docker test live with hi ${products}</h1>`);
+    res.send(`<h1>hello test node js with docker test live with data from aws${products}</h1>`);
   } catch (error) {
     console.log('Redis get error:', error);
     res.send('<h1>Error getting data from Redis</h1>');
