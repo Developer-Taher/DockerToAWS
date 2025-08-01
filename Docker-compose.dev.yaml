@@ -1,0 +1,12 @@
+services:
+  node-app-dev:
+    container_name: node-app-container-dev
+    volumes:
+      - ./src:/app/src:ro
+      - node_modules_dev:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "start-dev"]
+
+volumes:
+  node_modules_dev:
